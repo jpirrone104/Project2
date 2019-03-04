@@ -1,7 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
   var Tour = sequelize.define("Tour", {
-    tile: DataTypes.STRING,
-    description: DataTypes.TEXT,
+    tile: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     "number of stops": DataTypes.INTEGER,
     duration: DataTypes.TIME,
     tags: DataTypes.STRING
