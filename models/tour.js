@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [500]
+      }
     },
     "number of stops": DataTypes.INTEGER,
     duration: DataTypes.TIME,
