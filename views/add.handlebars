@@ -1,0 +1,115 @@
+<!-- Page Content -->
+  <section id="view-tours-main" class="mb-3">
+
+    <div class="container mb-3">
+      <div class="row justify-content-center align-items-center text-center">
+        <div class="col-lg-6">
+          <h1 class="mt-5">Add a Tour</h1>
+        </div>
+      </div>
+
+      <!-- Start form -->
+      <form id="add-tour-form">
+
+        <!-- Tour title -->
+        <div class="form-group">
+            <label for="tour-creator">Your Name</label>
+            <input type="text" class="form-control" id="tour-creator" aria-describedby="creatorHelp" placeholder="Enter your name">
+            <small id="creatorHelp" class="form-text text-muted">Your name will be displayed alongside your tour.</small>
+        </div>
+
+        <!-- Tour title -->
+        <div class="form-group">
+            <label for="tour-title">Tour title</label>
+            <input type="text" class="form-control" id="tour-title" aria-describedby="titleHelp" placeholder="Enter tour title">
+            <small id="titleHelp" class="form-text text-muted">Enter a short, descriptive title for your walking tour.</small>
+        </div>
+
+        <!-- Tour description -->
+        <div class="form-group">
+            <label for="tour-description">Description</label>
+            <textarea class="form-control" id="tour-description" rows="3" aria-describedby="descriptionHelp" placeholder="Enter tour description"></textarea>
+            <small id="descriptionHelp" class="form-text text-muted">Enter a short description of what users will see or do during your tour.</small>
+        </div>
+
+        <!-- Tour duration  -->
+        <div class="form-group">
+            <label for="tour-duration">Duration</label>
+            <input type="number" class="form-control" id="tour-duration" aria-describedby="durationHelp" min="1" placeholder="Enter tour duration (minutes)">
+            <small id="durationHelp" class="form-text text-muted">Enter the estimated duration of your event in minutes.</small>
+        </div>
+
+        <!-- Neighborhood select -->
+        <div class="form-group">
+            <label for="tour-neighborhood">Neighborhood</label>
+            <select class="form-control" id="tour-neighborhood" aria-describedby="neighborhoodHelp">
+                    <option>Select Neighborhood</option>
+                    <option value="0">Bella Vista</option>
+                    <option value="1">Callowhill</option>
+                    <option value="2">Chinatown</option>
+                    <option value="3">East Passyunk</option>
+                    <option value="4">Fairmount</option>
+                    <option value="5">Fishtown</option>
+                    <option value="6">Graduate Hospital</option>
+                    <option value="7">Logan Square</option>
+                    <option value="8">Market East</option>
+                    <option value="9">Midtown Village</option>
+                    <option value="10">Northern Liberties</option>
+                    <option value="11">Old City</option>
+                    <option value="12">Pennsport</option>
+                    <option value="13">Powelton Village</option>
+                    <option value="14">Queen Village</option>
+                    <option value="15">Rittenhouse Square</option>
+                    <option value="16">Society Hill</option>
+                    <option value="17">Spring Garden</option>
+                    <option value="18">Spruce Hill and Cedar Park</option>
+                    <option value="19">University City</option>
+                    <option value="20">Washington Square West</option>
+            </select>
+            <small id="neighborhoodHelp" class="form-text text-muted">Select the primary neighborhood that your tour covers.</small>
+        </div>
+
+        <!-- Upload tour image -->
+        <div class="form-group">
+            <label for="tour-img">Upload Tour Image</label>
+            <input type="text" class="form-control" id="tour-img" aria-describedby="imgHelp" placeholder="Enter your image">
+            <small id="imgHelp" class="form-text text-muted">Add the URL to an image that best represents your tour.</small>
+        </div>
+
+        <!-- Tour tags  -->
+        <div class="form-group">
+            <label for="tour-tags">Tags</label>
+            <div class="input-group" aria-describedby="tagsHelp">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Your Tags</span>
+                </div>
+                <input type="text" aria-label="Tag 1" class="form-control">
+                <input type="text" aria-label="Tag 2" class="form-control">
+                <input type="text" aria-label="Tag 3" class="form-control">
+            </div>
+            <small id="tagsHelp" class="form-text text-muted">Enter up to 3 tags that capture the spirit of your tour (eg, Arty, Family Friendly, Sporty).</small>
+        </div>
+
+        <hr />
+
+        <!-- Tour Stop #1 -->
+        <div class="form-group tour-stop">
+            <label for="tour-stop">Add Tour Stop</label>
+                <input type="text" class="form-control stop-title" aria-describedby="stopHelp" placeholder="Enter stop name">
+                <small id="stopHelp" class="form-text text-muted">Enter a name for this stop.</small>
+
+                <input type="text" class="form-control mt-3 stop-address" aria-describedby="stopAddressHelp" placeholder="Enter stop address">
+                <small id="stopAddressHelp" class="form-text text-muted">Enter an address for this stop.</small>
+
+                <textarea class="form-control mt-3 stop-description" rows="3" aria-describedby="stopDescriptionHelp" placeholder="Enter a description for this stop"></textarea>
+                <small id="stopDescriptionHelp" class="form-text text-muted">Enter a short description of what users can expect to find at this stop.</small>
+
+                <button type="button" class="btn btn-outline-success mt-3" id="add-stop-button">Add Another Stop</button>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" id="submit-button">Submit</button>
+      </form>
+    </div>
+
+  </section>
