@@ -5,6 +5,10 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index", { layout: "landing" });
   });
+
+  app.get("/view-tours", function(req, res) {
+    res.render("view-tours");
+  });
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
   //       res.render("index", {
