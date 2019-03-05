@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Location);
   };
 
-  return Location;
+  return User;
 };
