@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    "number of stops": DataTypes.INTEGER,
+    numberOfStops: DataTypes.INTEGER,
     duration: {
       type: DataTypes.INTEGER,
       allowNull: false
