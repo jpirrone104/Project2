@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Location = sequelize.define("Location", {
-    tile: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [500]
       }
     },
-    neighborhood: {
-      type: DataTypes.STRING,
+    address: {
+      type: DataTypes.TEXT,
       allowNull: false
     }
   });

@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Tour = sequelize.define("Tour", {
-    tile: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -8,11 +8,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [500]
+        len: [1000]
       }
     },
+    neighborhood: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     "number of stops": DataTypes.INTEGER,
-    duration: DataTypes.TIME,
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     tags: DataTypes.STRING
   });
 
