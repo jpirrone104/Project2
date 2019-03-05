@@ -1,4 +1,4 @@
-// var db = require("../models");
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
@@ -6,8 +6,13 @@ module.exports = function(app) {
     res.render("index", { layout: "landing" });
   });
 
+  // Load all available tours from the database.
   app.get("/view-tours", function(req, res) {
-    res.render("view-tours");
+    db.Tour.findAll({}).then(function(tours) {
+      res.render("view-tours", {
+        tours: tours
+      });
+    });
   });
 
   app.get("/add", function(req, res) {
