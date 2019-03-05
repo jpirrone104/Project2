@@ -13,6 +13,11 @@ module.exports = function(app) {
   app.get("/add", function(req, res) {
     res.render("add");
   });
+
+  app.get("/tour/:id", function(req, res) {
+    // var id = req.params.id;
+    res.render("tour");
+  });
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
   //       res.render("index", {
