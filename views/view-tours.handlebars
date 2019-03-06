@@ -21,10 +21,9 @@
                         <h3><span id="neighborhood" class="badge badge-info">{{neighborhood}}</span></h3>
                         <h5><span id="duration" class="badge badge-danger">{{duration}} minutes</span></h5>
                         <p>
-                            {{returnArrayfromString tags}}
-                            <span class="tour-tag badge badge-secondary"></span>
-                            {{!-- <span class="tour-tag badge badge-secondary">Historic</span>
-                            <span class="tour-tag badge badge-secondary">Family Friendly</span> --}}
+                            {{#each (returnArrayfromString tags)}}
+                            <span class="tour-tag badge badge-secondary">{{this}}</span>
+                            {{/each}}
                         </p>
                         <p class="card-text">{{description}}</p>
                         <a href="/tour/{{id}}" class="btn btn-outline-secondary btn-lg btn-block" role="button">View
