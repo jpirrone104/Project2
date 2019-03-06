@@ -2,7 +2,7 @@ module.exports = {
   development: {
     username: "root",
     // make sure to set this env variable in your .env file
-    password: "Retail274",
+    password: process.env.LOCAL_MYSQL_PASSWORD,
     database: "PhillyMeIn",
     host: "localhost",
     dialect: "mysql"

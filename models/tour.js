@@ -16,8 +16,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     URL: {
-      type: DataTypes.VARCHAR(1000),
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1000]
+      }
     },
     numberOfStops: DataTypes.INTEGER,
     duration: {
