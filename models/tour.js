@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    URL: {
+      type: DataTypes.VARCHAR(1000),
+      allowNull: false
+    },
     numberOfStops: DataTypes.INTEGER,
     duration: {
       type: DataTypes.INTEGER,

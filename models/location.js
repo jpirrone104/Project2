@@ -14,11 +14,17 @@ module.exports = function(sequelize, DataTypes) {
     address: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    tourId: {
+      type: DataTypes.TEXT,
+      allowNull: false
     }
   });
 
   Location.associate = function(models) {
-    Location.belongsTo(models.Tour);
+    Location.belongsTo(models.Tour, {
+      onDelete: "cascade"
+    });
   };
 
   return Location;
