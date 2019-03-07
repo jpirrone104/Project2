@@ -14,15 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     address: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    tourId: {
-      type: DataTypes.TEXT,
-      allowNull: false
     }
-    // tourId: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false
-    // }
   });
 
   Location.associate = function(models) {
