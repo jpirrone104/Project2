@@ -51,17 +51,19 @@ module.exports = function(app) {
     });
   });
 
-  // app.get("/browse/:neighborhood", function(req, res) {
-  //   db.Tour.findAll({
-  //     where: {
-  //       tags: req.params.neighborhood
-  //     }
-  //   }).then(function(tours) {
-  //     res.render("view-tours", {
-  //       tours: tours
-  //     });
-  //   });
-  // });
+  app.get("/browse/tags/:tag", function(req, res) {
+    db.Tour.findAll({
+      where: {
+        tags: {
+          $like: "%" + req.params.tag + "%"
+        }
+      }
+    }).then(function(tours) {
+      res.render("view-tours", {
+        tours: tours
+      });
+    });
+  });
 
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
