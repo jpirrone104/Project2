@@ -3,7 +3,7 @@
     <div class="container mb-3">
         <div class="row justify-content-center align-items-center text-center">
             <div class="col-lg-6">
-                <h1 class="mt-5">Browse by Neighborhood</h1>
+                <h1 class="mt-5">Browse</h1>
             </div>
         </div>
     </div>
@@ -11,10 +11,18 @@
     <div class="container">
         <div class="row justify-content-center align-items-center text-center mb-5">
             <div class="col-lg-10">
+                <h2 class="mt-3">By neighborhood</h2>
                 {{#each (returnAvailableNeighborhoods tours)}}
-                <a href="/browse/{{this}}" class="btn btn-secondary btn-lg" role="button">{{this}}</a>
+                <a href="/browse/{{this}}" class="btn btn-secondary btn-lg m-2" role="button">{{this}}</a>
                 {{else}}
-                <h3 class="text-center font-italic">There are currently no tours available to browse.</h3>
+                <h3 class="text-center font-italic">There are currently no tours available to browse by neighhood.</h3>
+                {{/each}}
+
+                <h2 class="mt-5">By Tag</h2>
+                {{#each (returnUniqueTags tours)}}
+                <a href="/browse/tags/{{this}}" class="btn btn-info btn-lg m-2" role="button">{{this}}</a>
+                {{else}}
+                <h3 class="text-center font-italic">There are currently no tours available to browse by tag.</h3>
                 {{/each}}
             </div>
         </div>
