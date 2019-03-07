@@ -13,7 +13,7 @@ CREATE Table tours (
   PRIMARY KEY(id)
 );
 
-CREATE Table Users (
+CREATE Table locations (
   id int AUTO_INCREMENT,
   title varchar(255) NOT NULL,
   description text(1000) NOT NULL,
@@ -23,7 +23,7 @@ CREATE Table Users (
   PRIMARY KEY(id)
 );
 
-CREATE Table locations (
+CREATE Table Users (
   id int AUTO_INCREMENT,
   name varchar(255) NOT NULL,
   createdAt datetime NOT NULL,
