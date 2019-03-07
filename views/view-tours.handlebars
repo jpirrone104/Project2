@@ -18,7 +18,7 @@
                             John Smith</span></h5>
                     <div class="card-body">
                         <img src="{{URL}}" alt="Image related to {{neighborhood}}" class="img-thumbnail w-50 mb-2">
-                        <h3><span id="neighborhood" class="badge badge-info">{{neighborhood}}</span></h3>
+                        <h3><span id="neighborhood" class="badge badge-info"><a href="/browse/{{neighborhood}}" class="text-white" style="text-decoration: none">{{neighborhood}}</a></span></h3>
                         <h5><span id="duration" class="badge badge-danger">{{duration}} minutes</span></h5>
                         <p>
                             {{#each (returnArrayfromString tags)}}

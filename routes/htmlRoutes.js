@@ -32,12 +32,24 @@ module.exports = function(app) {
 
   app.get("/browse", function(req, res) {
     db.Tour.findAll({}).then(function(tours) {
-      console.log(tours[1].dataValues.neighborhood);
       res.render("browse", {
         tours: tours
       });
     });
   });
+
+  app.get("/browse/:neighborhood", function(req, res) {
+    db.Tour.findAll({
+      where: {
+        neighborhood: req.params.neighborhood
+      }
+    }).then(function(tours) {
+      res.render("view-tours", {
+        tours: tours
+      });
+    });
+  });
+
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
   //       res.render("index", {
