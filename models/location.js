@@ -15,10 +15,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    tourId: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    }
+//     tourId: {
+//       type: DataTypes.TEXT,
+//       allowNull: false
+//     }
     // tourId: {
     //   type: DataTypes.TEXT,
     //   allowNull: false
