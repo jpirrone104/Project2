@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+var helpers = require("./lib/helpers");
 
 var db = require("./models");
 
@@ -12,13 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+var hbs = exphbs.create({
+  defaultLayout: "main",
+  helpers: helpers // Require our custom Handlebars helpers.
+});
+
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Routes
