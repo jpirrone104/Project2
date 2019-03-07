@@ -1,0 +1,22 @@
+<!-- Page Content -->
+<section id="view-tours-main" class="mb-3">
+    <div class="container mb-3">
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-lg-6">
+                <h1 class="mt-5">Browse by Neighborhood</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center text-center mb-5">
+            <div class="col-lg-10">
+                {{#each (returnAvailableNeighborhoods tours)}}
+                <p>{{this}}</p>
+                {{else}}
+                <h3 class="text-center font-italic">There are currently no tours available to browse.</h3>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>

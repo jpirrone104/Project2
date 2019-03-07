@@ -29,6 +29,15 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.get("/browse", function(req, res) {
+    db.Tour.findAll({}).then(function(tours) {
+      console.log(tours[1].dataValues.neighborhood);
+      res.render("browse", {
+        tours: tours
+      });
+    });
+  });
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
   //       res.render("index", {
