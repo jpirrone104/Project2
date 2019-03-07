@@ -20,8 +20,14 @@ module.exports = function(app) {
   });
 
   app.get("/tour/:id", function(req, res) {
-    // var id = req.params.id;
-    res.render("tour");
+    db.Tour.findOne({
+      where: { id: req.params.id },
+      include: [db.Location]
+    }).then(function(tour) {
+      res.render("tour", {
+        tour: tour
+      });
+    });
   });
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
