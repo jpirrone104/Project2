@@ -20,9 +20,51 @@ module.exports = function(app) {
   });
 
   app.get("/tour/:id", function(req, res) {
-    // var id = req.params.id;
-    res.render("tour");
+    db.Tour.findOne({
+      where: { id: req.params.id },
+      include: [db.Location]
+    }).then(function(tour) {
+      res.render("tour", {
+        tour: tour
+      });
+    });
   });
+
+  app.get("/browse", function(req, res) {
+    db.Tour.findAll({}).then(function(tours) {
+      console.log(tours[0].dataValues.tags);
+      res.render("browse", {
+        tours: tours
+      });
+    });
+  });
+
+  app.get("/browse/:neighborhood", function(req, res) {
+    db.Tour.findAll({
+      where: {
+        neighborhood: req.params.neighborhood
+      }
+    }).then(function(tours) {
+      res.render("view-tours", {
+        tours: tours
+      });
+    });
+  });
+
+  app.get("/browse/tags/:tag", function(req, res) {
+    db.Tour.findAll({
+      where: {
+        tags: {
+          $like: "%" + req.params.tag + "%"
+        }
+      }
+    }).then(function(tours) {
+      res.render("view-tours", {
+        tours: tours
+      });
+    });
+  });
+
   //   app.get("/", function(req, res) {
   //     db.Example.findAll({}).then(function(dbExamples) {
   //       res.render("index", {
