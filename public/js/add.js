@@ -187,20 +187,20 @@ function addTourLocations(e) {
 
     if (areStopErrors) {
       alert("You're missing a tour stop title, description, or address.");
+    } else {
+      API.saveLocations(locations).then(function(data) {
+        if (data) {
+          console.log("success! posted locations.");
+          window.location.href = "/view-tours";
+        } else {
+          alert("Something went wrong. Try again!");
+        }
+      });
     }
   }
-
-  API.saveLocations(locations).then(function(data) {
-    if (data) {
-      console.log("success! posted locations.");
-      window.location.href = "/view-tours";
-    } else {
-      alert("Something went wrong. Try again!");
-    }
-  });
 }
 
 // Function that takes in a url and returns boolean whether it ends with the proper picture format.
 function checkURL(url) {
-  return url.match(/\.(jpeg|jpg|gif|png)$/) !== null;
+  return url.match(/\.(jpeg|jpg|gif|png)$/i) !== null;
 }
