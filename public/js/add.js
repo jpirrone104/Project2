@@ -136,14 +136,19 @@ function addTourLocations(e) {
   e.preventDefault();
   // Grab and process all of our tour stops.
   var locationElements = document.getElementsByClassName("tourstop");
+  var areStopErrors = false;
   var locations = [];
+
+  // Loop over every location element on the DOM.
   for (var j = 0; j < locationElements.length; j++) {
     var children = locationElements[j].children;
-    // Initialize our location object with the tour id; we'll pass in data...
+
+    // Initialize this location with the tour id; we'll pass in data...
     var thisLocation = {
       TourId: thisTour.getId()
     };
-    // ... by looping over the DOM children and grabbing their values.
+
+    // ... by looping over the DOM children and grabbing their form values.
     for (var k = 0; k < children.length; k++) {
       if (
         children[k].classList.value.includes("stoptitle") &&
@@ -173,8 +178,6 @@ function addTourLocations(e) {
     // Push this location into our locations array.
     locations.push(thisLocation);
 
-    // Check for errors or missing values.
-    var areStopErrors = false;
     for (var t = 0; t < locations.length; t++) {
       if (
         !locations[t].title ||
@@ -184,19 +187,21 @@ function addTourLocations(e) {
         areStopErrors = true;
       }
     }
+  }
 
-    if (areStopErrors) {
-      alert("You're missing a tour stop title, description, or address.");
-    } else {
-      API.saveLocations(locations).then(function(data) {
-        if (data) {
-          console.log("success! posted locations.");
-          window.location.href = "/view-tours";
-        } else {
-          alert("Something went wrong. Try again!");
-        }
-      });
-    }
+  if (areStopErrors) {
+    alert(
+      "You're missing a tour stop title, description, or address along the way."
+    );
+  } else {
+    API.saveLocations(locations).then(function(data) {
+      if (data) {
+        console.log("success! posted locations.");
+        window.location.href = "/view-tours";
+      } else {
+        alert("Something went wrong. Try again!");
+      }
+    });
   }
 }
 
