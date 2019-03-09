@@ -17,7 +17,10 @@ module.exports = {
   },
   production: {
     /* eslint-disable-next-line camelcase */
-    use_env_variable: process.env.JAWSDB_URL,
+    username: process.env.PROD_DB_USERNAME,
+    password: process.env.PROD_DB_PASSWORD,
+    database: process.env.PROD_DB_DATABASE,
+    host: process.env.PROD_DB_HOST,
     dialect: "mysql"
   }
 };
