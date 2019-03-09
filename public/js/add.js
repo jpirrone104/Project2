@@ -19,18 +19,23 @@ var API = {
       url: "api/locations",
       data: JSON.stringify(locations)
     });
+  }
+};
+
+// Object for keeping tabs on the current tour we're working with.
+var thisTour = {
+  id: 0,
+  setId: function(id) {
+    this.id = id;
   },
-  getTours: function() {
-    return $.ajax({
-      url: "api/tours",
-      type: "GET"
-    });
+  getId: function() {
+    return this.id;
   }
 };
 
 // If the user wants to add another stop to the route, generate a blank input field.
 $(document).on("click", "#add-stop-button", function() {
-  var submitButton = $("#submit-button");
+  var submitButton = $("#submit-locations");
   var addStop = $(".tourstop:last");
 
   // Clone the new stop input and clear contents of previous entry.
@@ -44,9 +49,9 @@ $(document).on("click", "#add-stop-button", function() {
   $(this).remove();
 });
 
-// Handle POST/GET requests when user clicks on the submit buttons.
+// Handle POST requests when user clicks on the submit buttons.
 $("#submit-tour").on("click", createTour);
-$("submit-locations").on("click", addTourLocations);
+$("#submit-locations").on("click", addTourLocations);
 
 // Grab DOM values for our tour, package them into an object, and POST to api/tours.
 function createTour(e) {
@@ -116,36 +121,30 @@ function createTour(e) {
     tags: tags
   };
 
-  // This is our first POST request to the tour tables. It should return tour.
-  API.saveTour(tour).then(function(tour) {
-    revealLocationForm();
-    addTourLocations(tour);
-  });
-  // Drop down displaying the add tour stop input fields.
-
-  // Call function that grabs values from stops and then sends POST request to api/locations.
-
-  //   // We'll need to capture the tourId in this second POST request to the locations table.
-  //   API.saveLocations(locations).then(function() {
-  //     window.location.href = "/view-tours";
-  //   });
-  // });
+  if (!errors.length) {
+    // Post our tour to the Tours table, then reveal the form and set our local tour object.
+    API.saveTour(tour).then(function(tour) {
+      document.getElementById("submit-tour").remove();
+      document.getElementById("tourstopssection").style.display = "block";
+      thisTour.setId(tour.id);
+    });
+  }
 }
 
 // Function takes in the newly created tour object, grabs DOM values for each.
-function addTourLocations(tour) {
-  // Grab and process all of our tour stops (derive number of stops from number of stops on page).
+function addTourLocations(e) {
+  e.preventDefault();
+  // Grab and process all of our tour stops.
   var locationElements = document.getElementsByClassName("tourstop");
   var locations = [];
   for (var j = 0; j < locationElements.length; j++) {
     var children = locationElements[j].children;
-    // Initialize our location object with the tour id; we'll pass in specific user data next...
+    // Initialize our location object with the tour id; we'll pass in data...
     var thisLocation = {
-      TourId: tour.id
+      TourId: thisTour.getId()
     };
     // ... by looping over the DOM children and grabbing their values.
     for (var k = 0; k < children.length; k++) {
-      console.log(children[k].classList.value);
       if (
         children[k].classList.value.includes("stoptitle") &&
         children[k].value
@@ -170,9 +169,11 @@ function addTourLocations(tour) {
         thisLocation.description = stopDescription;
       }
     }
+
+    // Push this location into our locations array.
     locations.push(thisLocation);
 
-    // Keep tabs on whether or not there are errors with the submit tour locations array.
+    // Check for errors or missing values.
     var areStopErrors = false;
     for (var t = 0; t < locations.length; t++) {
       if (
@@ -185,25 +186,18 @@ function addTourLocations(tour) {
     }
 
     if (areStopErrors) {
-      errors.push(" Missing tour stop title, description, or address");
-    }
-
-    if (errors.length > 0) {
-      alert("Please fix the following errors: \n" + errors);
+      alert("You're missing a tour stop title, description, or address.");
     }
   }
 
   API.saveLocations(locations).then(function(data) {
     if (data) {
+      console.log("success! posted locations.");
       window.location.href = "/view-tours";
     } else {
       alert("Something went wrong. Try again!");
     }
   });
-}
-
-function revealLocationForm() {
-  $("#tourstopsection").toggle("slide");
 }
 
 // Function that takes in a url and returns boolean whether it ends with the proper picture format.

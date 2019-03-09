@@ -16,10 +16,9 @@ module.exports = function(app) {
   });
 
   // Post a new set of locations associated with a tour.
-  app.post("/api/tours", function(req, res) {
-    console.log(req.body);
-    db.Tour.bulkCreate(req.body).then(function(tour) {
-      res.json(tour);
+  app.post("/api/locations", function(req, res) {
+    db.Location.bulkCreate(req.body).then(function(locations) {
+      res.json(locations);
     });
   });
 
