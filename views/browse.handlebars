@@ -20,7 +20,9 @@
 
                 <h2 class="mt-5">By Tag</h2>
                 {{#each (returnUniqueTags tours)}}
-                <a href="/browse/tags/{{this}}" class="btn btn-info btn-lg m-2" role="button">{{this}}</a>
+                    {{#if this}}
+                        <a href="/browse/tags/{{this}}" class="btn btn-info btn-lg m-2" role="button">{{this}}</a>
+                    {{/if}}
                 {{else}}
                 <h3 class="text-center font-italic">There are currently no tours available to browse by tag.</h3>
                 {{/each}}

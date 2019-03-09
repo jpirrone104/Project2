@@ -22,7 +22,9 @@
                         <h5><span id="duration" class="badge badge-danger">{{duration}} minutes</span></h5>
                         <p>
                             {{#each (returnArrayfromString tags)}}
-                            <span class="tour-tag badge badge-secondary"><a href="/browse/tags/{{this}}" class="text-white" style="text-decoration: none">{{this}}</a></span>
+                                {{#if this}}
+                                    <span class="tour-tag badge badge-secondary"><a href="/browse/tags/{{this}}" class="text-white" style="text-decoration: none">{{this}}</a></span>
+                                {{/if}}
                             {{/each}}
                         </p>
                         <p class="card-text">{{description}}</p>
