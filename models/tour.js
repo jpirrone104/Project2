@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1000]
+        len: [1, 1000]
       }
     },
     neighborhood: {
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1000]
+        len: [1, 1000]
       }
     },
     numberOfStops: DataTypes.INTEGER,
