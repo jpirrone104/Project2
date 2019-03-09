@@ -22,6 +22,13 @@ module.exports = function(app) {
     });
   });
 
+  // Get all of our tour locations.
+  app.get("/api/locations", function(req, res) {
+    db.Location.findAll({}).then(function(locations) {
+      res.json(locations);
+    });
+  });
+
   // Delete an example by id
   //   app.delete("/api/examples/:id", function(req, res) {
   //     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
