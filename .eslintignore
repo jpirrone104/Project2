@@ -1,3 +1,4 @@
 models/index.js
 node_modules
 migrations/20190306001502-adding_new_fields.js
+config/config.js
