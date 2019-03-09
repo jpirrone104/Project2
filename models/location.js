@@ -18,9 +18,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Location.associate = function(models) {
-    Location.belongsTo(models.Tour, {
-      onDelete: "cascade"
-    });
+    Location.belongsTo(models.Tour);
   };
 
   return Location;

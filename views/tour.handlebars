@@ -1,9 +1,9 @@
 <!-- Page Content -->
-  <section id="tour-main" class="mb-3">
+  <section id="view-tours-main" class="mb-3">
     <div class="container mb-3">
       <div class="row justify-content-center align-items-center text-center">
         <div class="col-lg-6">
-          <h1 class="mt-5">{{tour.title}}</h1>
+          <h1 class="mt-5">View All Tours</h1>
         </div>
       </div>
     </div>
@@ -12,42 +12,86 @@
         <div class="row justify-content-center align-items-center text-center">
           <div class="col-lg-10">
             <div class="card shadow-sm">
-                <h5 class="card-header">{{tour.title}}<br /><span id="creator" class="font-italic">by John Smith</span></h5>
+                <h5 class="card-header">Historic Fairmount Walking Tour <span id="creator" class="font-italic">by John Smith</span></h5>
                 <div class="card-body">
-                  <img src="{{tour.URL}}" alt="Image related to {{tour.neighborhood}}" class="img-thumbnail w-50 mb-2">
-                  <h3><span id="neighborhood" class="badge badge-info"><a href="/browse/{{tour.neighborhood}}" class="text-white" style="text-decoration: none">{{tour.neighborhood}}</a></span></h3>
-                  <h5><span id="duration" class="badge badge-danger">{{tour.duration}} minutes</span></h5>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Art_Museum_area.jpg" alt="..." class="img-thumbnail w-50 mb-2">
+                  <h3><span id="neighborhood" class="badge badge-info">Fairmount</span></h3>
+                  <h5><span id="duration" class="badge badge-danger">120 minutes</span></h5>
                   <p>
-                      {{#each (returnArrayfromString tour.tags)}}
-                      <span class="tour-tag badge badge-secondary"><a href="/browse/tags/{{this}}" class="text-white" style="text-decoration: none">{{this}}</a></span>
-                      {{/each}}
+                      <span class="tour-tag badge badge-secondary">Arty</span>
+                      <span class="tour-tag badge badge-secondary">Historic</span>
+                      <span class="tour-tag badge badge-secondary">Family Friendly</span>
                   </p>
-                  <p class="card-text">{{tour.description}}</p>
-                  {{!-- Begin location accordion --}}
+                  <p class="card-text">Fairmount is a neighborhood in the city of Philadelphia, Pennsylvania situated just Northwest of Center City. Along with the surrounding neighborhoods of Brewerytown, Francisville and Spring Garden, Fairmount is part of the city's beautiful Art Museum Area. Named for the hill upon which the Philadelphia Museum of Art stands, Fairmount is just north of the museum. It borders the Benjamin Franklin Parkway, Philly's version of the Champs Elysées and Fairmount Park, the largest urban park in the world.</p>
                   <div class="accordion" id="accordionExample">
-                    {{#each tour.Locations}}
                     <div class="card">
-                      <div class="card-header" id="heading{{id}}">
+                      <div class="card-header" id="heading1">
                         <h2 class="mb-0">
-                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{id}}" aria-expanded="true" aria-controls="collapse{{id}}">
-                            {{title}}
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Eastern State Penitentiary
                           </button>
                         </h2>
                       </div>
                   
-                      <div id="collapse{{id}}" class="collapse" aria-labelledby="heading{{id}}" data-parent="#accordionExample">
+                      <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
                         <div class="card-body">
-                            <p>{{description}}</p>
+                            <p>The Eastern State Penitentiary, also known as ESP, is a former American prison in Philadelphia, Pennsylvania. It is located at 2027 Fairmount Avenue between Corinthian Avenue and North 22nd Street in the Fairmount section of the city, and was operational from 1829 until 1971. The penitentiary refined the revolutionary system of separate incarceration first pioneered at the Walnut Street Jail which emphasized principles of reform rather than punishment.</p>
 
-                            <a href="https://www.google.com/maps/place/{{address}}" target="_blank" class="btn btn-primary btn-sm stop-address" role="button">{{address}}</a>
+                            <p>Notorious criminals such as Al Capone and bank robber Willie Sutton were held inside its innovative wagon wheel design. James Bruno (Big Joe) and several male relatives were incarcerated here between 1936 and 1948 for the alleged murders in the Kelayres massacre of 1934, before they were paroled. At its completion, the building was the largest and most expensive public structure ever erected in the United States, and quickly became a model for more than 300 prisons worldwide.</p>
+
+                            <button type="button" class="btn btn-primary btn-sm stop-address">2027 Fairmount Ave, Philadelphia, PA 19130</button>
                         </div>
                       </div>
                     </div>
-                    {{else}} 
-                    <h3 class="text-center font-italic">There are currently no stops for this tour.</h3>
-                    {{/each}}
+                    <div class="card">
+                      <div class="card-header" id="heading2">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            Philadelphia Museum of Art
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>The Philadelphia Museum of Art is an art museum originally chartered in 1876 for the Centennial Exposition in Philadelphia. The main museum building was completed in 1928 on Fairmount, a hill located at the northwest end of the Benjamin Franklin Parkway at Eakins Oval. The museum administers collections containing over 240,000 objects including major holdings of European, American and Asian origin. The various classes of artwork include sculpture, paintings, prints, drawings, photographs, armor, and decorative arts.</p>
+
+                            <button type="button" class="btn btn-primary btn-sm stop-address">2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading3">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            The Barnes Foundation
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>The Barnes Foundation is an art collection and educational institution promoting the appreciation of art and horticulture. Originally in Merion, the art collection moved in 2012 to a new building on Benjamin Franklin Parkway in Philadelphia, Pennsylvania. The arboretum of the Barnes Foundation remains in Merion, where it has been proposed to be maintained under a long-term educational affiliation agreement with Saint Joseph's University.</p>
+
+                            <button type="button" class="btn btn-primary btn-sm stop-address">2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="heading4">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            Logan Square
+                            </button>
+                            </h2>
+                        </div>
+                        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <p>Logan Square is a vibrant mix of historic buildings, swanky high-rises and museums sharing verdant parkland. Designed by Philly-born sculptor Alexander Calder, the bronze figures of the park's Swann Memorial Fountain symbolize the city’s waterways. Popular attractions for both local families and out-of-state visitors include the Barnes Foundation and the iconic LOVE sculpture, a popular spot for tourist selfies.</p>
+
+                                <button type="button" class="btn btn-primary btn-sm stop-address">Logan Square, Philadelphia, PA 19103</button>
+                            </div>
+                        </div>
+                    </div>
                   </div>
-                  {{!-- End location accordion --}}
                 </div>
               </div>
           </div>

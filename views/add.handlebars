@@ -13,36 +13,36 @@
 
         <!-- Tour title -->
         <div class="form-group">
-            <label for="tourcreator">Your Name</label>
-            <input type="text" class="form-control" id="tourcreator" aria-describedby="creatorHelp" placeholder="Enter your name" required>
+            <label for="tour-creator">Your Name</label>
+            <input type="text" class="form-control" id="tour-creator" aria-describedby="creatorHelp" placeholder="Enter your name">
             <small id="creatorHelp" class="form-text text-muted">Your name will be displayed alongside your tour.</small>
         </div>
 
         <!-- Tour title -->
         <div class="form-group">
-            <label for="tourtitle">Tour title</label>
-            <input type="text" class="form-control" id="tourtitle" aria-describedby="titleHelp" placeholder="Enter tour title" required>
+            <label for="tour-title">Tour title</label>
+            <input type="text" class="form-control" id="tour-title" aria-describedby="titleHelp" placeholder="Enter tour title">
             <small id="titleHelp" class="form-text text-muted">Enter a short, descriptive title for your walking tour.</small>
         </div>
 
         <!-- Tour description -->
         <div class="form-group">
-            <label for="tourdescription">Description</label>
-            <textarea class="form-control" id="tourdescription" rows="3" aria-describedby="descriptionHelp" placeholder="Enter tour description" required></textarea>
+            <label for="tour-description">Description</label>
+            <textarea class="form-control" id="tour-description" rows="3" aria-describedby="descriptionHelp" placeholder="Enter tour description"></textarea>
             <small id="descriptionHelp" class="form-text text-muted">Enter a short description of what users will see or do during your tour.</small>
         </div>
 
         <!-- Tour duration  -->
         <div class="form-group">
-            <label for="tourduration">Duration</label>
-            <input type="number" class="form-control" id="tourduration" aria-describedby="durationHelp" min="1" placeholder="Enter tour duration (minutes)">
+            <label for="tour-duration">Duration</label>
+            <input type="number" class="form-control" id="tour-duration" aria-describedby="durationHelp" min="1" placeholder="Enter tour duration (minutes)">
             <small id="durationHelp" class="form-text text-muted">Enter the estimated duration of your event in minutes.</small>
         </div>
 
         <!-- Neighborhood select -->
         <div class="form-group">
-            <label for="tourneighborhood">Neighborhood</label>
-            <select class="form-control" id="tourneighborhood" aria-describedby="neighborhoodHelp" required>
+            <label for="tour-neighborhood">Neighborhood</label>
+            <select class="form-control" id="tour-neighborhood" aria-describedby="neighborhoodHelp">
                     <option>Select Neighborhood</option>
                     <option value="0">Bella Vista</option>
                     <option value="1">Callowhill</option>
@@ -71,48 +71,45 @@
 
         <!-- Upload tour image -->
         <div class="form-group">
-            <label for="tourimg">Upload Tour Image</label>
-            <input type="text" class="form-control" id="tourimg" aria-describedby="imgHelp" placeholder="Enter your image">
+            <label for="tour-img">Upload Tour Image</label>
+            <input type="text" class="form-control" id="tour-img" aria-describedby="imgHelp" placeholder="Enter your image">
             <small id="imgHelp" class="form-text text-muted">Add the URL to an image that best represents your tour.</small>
         </div>
 
         <!-- Tour tags  -->
         <div class="form-group">
-            <label for="tourtags">Tags</label>
+            <label for="tour-tags">Tags</label>
             <div class="input-group" aria-describedby="tagsHelp">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Your Tags</span>
                 </div>
-                <input type="text" aria-label="Tag 1" class="form-control tag">
-                <input type="text" aria-label="Tag 2" class="form-control tag">
-                <input type="text" aria-label="Tag 3" class="form-control tag">
+                <input type="text" aria-label="Tag 1" class="form-control">
+                <input type="text" aria-label="Tag 2" class="form-control">
+                <input type="text" aria-label="Tag 3" class="form-control">
             </div>
             <small id="tagsHelp" class="form-text text-muted">Enter up to 3 tags that capture the spirit of your tour (eg, Arty, Family Friendly, Sporty).</small>
         </div>
 
-        <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" id="submit-tour">Create Tour</button>
+        <hr />
 
-        <!-- Tour Stops -->
-        <div id="tourstopssection">
-          <hr />
-          <div class="form-group tourstop">
-              <label for="tourstop">Add Tour Stop</label>
-                  <input type="text" class="form-control stoptitle" aria-describedby="stopHelp" placeholder="Enter stop name">
-                  <small id="stopHelp" class="form-text text-muted">Enter a name for this stop.</small>
+        <!-- Tour Stop #1 -->
+        <div class="form-group tour-stop">
+            <label for="tour-stop">Add Tour Stop</label>
+                <input type="text" class="form-control stop-title" aria-describedby="stopHelp" placeholder="Enter stop name">
+                <small id="stopHelp" class="form-text text-muted">Enter a name for this stop.</small>
 
-                  <input type="text" class="form-control mt-3 stopaddress" aria-describedby="stopAddressHelp" placeholder="Enter stop address">
-                  <small id="stopAddressHelp" class="form-text text-muted">Enter an address for this stop.</small>
+                <input type="text" class="form-control mt-3 stop-address" aria-describedby="stopAddressHelp" placeholder="Enter stop address">
+                <small id="stopAddressHelp" class="form-text text-muted">Enter an address for this stop.</small>
 
-                  <textarea class="form-control mt-3 stopdescription" rows="3" aria-describedby="stopDescriptionHelp" placeholder="Enter a description for this stop"></textarea>
-                  <small id="stopDescriptionHelp" class="form-text text-muted">Enter a short description of what users can expect to find at this stop.</small>
+                <textarea class="form-control mt-3 stop-description" rows="3" aria-describedby="stopDescriptionHelp" placeholder="Enter a description for this stop"></textarea>
+                <small id="stopDescriptionHelp" class="form-text text-muted">Enter a short description of what users can expect to find at this stop.</small>
 
-                  <button type="button" class="btn btn-outline-success mt-3" id="add-stop-button">Add Another Stop</button>
-          </div>
+                <button type="button" class="btn btn-outline-success mt-3" id="add-stop-button">Add Another Stop</button>
+        </div>
 
-          <!-- Submit tour locations button -->
-          <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" id="submit-locations">Submit Tour Locations</button>
-          </div>
-        </form>
-
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-outline-secondary btn-lg btn-block" id="submit-button">Submit</button>
+      </form>
     </div>
+
   </section>
