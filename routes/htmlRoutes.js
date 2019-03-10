@@ -32,7 +32,6 @@ module.exports = function(app) {
 
   app.get("/browse", function(req, res) {
     db.Tour.findAll({}).then(function(tours) {
-      console.log(tours[0].dataValues.tags);
       res.render("browse", {
         tours: tours
       });
@@ -45,8 +44,9 @@ module.exports = function(app) {
         neighborhood: req.params.neighborhood
       }
     }).then(function(tours) {
-      res.render("view-tours", {
-        tours: tours
+      res.render("browse-neighborhoods", {
+        tours: tours,
+        neighborhood: req.params.neighborhood
       });
     });
   });
@@ -59,7 +59,6 @@ module.exports = function(app) {
         }
       }
     }).then(function(tours) {
-      console.log(req.params.tag);
       res.render("browse-tags", {
         tours: tours,
         tag: req.params.tag
