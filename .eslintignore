@@ -3,3 +3,6 @@ node_modules
 migrations/20190306001502-adding_new_fields.js
 config/config.js
 seeders/20190307021151-la_calombe-location.js
+config/middleware/isAuthenticated.js
+public/js/login.js
+public/js/signup.js
