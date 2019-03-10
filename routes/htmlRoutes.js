@@ -59,8 +59,10 @@ module.exports = function(app) {
         }
       }
     }).then(function(tours) {
-      res.render("view-tours", {
-        tours: tours
+      console.log(req.params.tag);
+      res.render("browse-tags", {
+        tours: tours,
+        tag: req.params.tag
       });
     });
   });
