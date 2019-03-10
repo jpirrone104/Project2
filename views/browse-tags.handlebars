@@ -17,8 +17,10 @@
             <div class="col-lg-10">
                 <div class="card shadow-sm">
                     {{!-- FOR LATER: Add user/creator name once it's been added to the schema. --}}
-                    <h5 class="card-header">{{title}}<br /><span id="creator" class="font-italic">by
-                            John Smith</span></h5>
+                    <h5 class="card-header">{{title}}<br />
+                    {{!-- <span id="creator" class="font-italic">by
+                            John Smith</span> --}}
+                    </h5>
                     <div class="card-body">
                         <img src="{{URL}}" alt="Image related to {{neighborhood}}" class="img-thumbnail w-50 mb-2">
                         <h3><span id="neighborhood" class="badge badge-info"><a href="/browse/{{neighborhood}}" class="text-white" style="text-decoration: none">{{neighborhood}}</a></span></h3>
