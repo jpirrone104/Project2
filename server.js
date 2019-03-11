@@ -26,6 +26,10 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function(req, res, next) {
+  res.locals.user = req.user; // Set a local variable for our user.
+  next();
+});
 
 // Handlebars
 app.engine("handlebars", hbs.engine);

@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -40,12 +40,20 @@
           <li class="nav-item">
             <a class="nav-link" href="/browse">Browse</a>
           </li>
+          {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/add">Add Tour</a>
           </li>
-          {{!-- <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li> --}}
+          {{/if}}
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout {{user.name}}</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          {{/if}}
         </ul>
       </div>
     </div>

@@ -55,21 +55,11 @@ var thisTour = {
   }
 };
 
-// (function() {
-//   console.log("HEHEHEHEHEHEHEEH");
-//   $.ajax({
-//     type: "GET",
-//     url: "/api/user_data"
-//   }).then(function(userdata) {
-//     thisUser.setUserData(userdata.id, userdata.name);
-//     console.log("HERE IS THE USER ID:" + thisUser.getUserId());
-// })();
-
 // IIF for grabbing and setting basic user information.
 $(document).ready(function() {
   $.get("api/user_data").then(function(userdata) {
     thisUser.setUserData(userdata.id, userdata.name);
-    console.log("HERE IS THE USER ID:" + thisUser.getUserId());
+    // console.log("HERE IS THE USER ID:" + thisUser.getUserId());
   });
 });
 
