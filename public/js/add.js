@@ -19,6 +19,28 @@ var API = {
       url: "api/locations",
       data: JSON.stringify(locations)
     });
+  },
+  getUserId: function() {
+    return $.ajax({
+      type: "GET",
+      url: "api/user_data"
+    });
+  }
+};
+
+// Object for keeping tabs on basic info regarding the current user.
+var thisUser = {
+  id: null,
+  name: "",
+  setUserData: function(id, name) {
+    this.id = id;
+    this.name = name;
+  },
+  getUserId: function() {
+    return this.id;
+  },
+  getUserName: function() {
+    return this.name;
   }
 };
 
@@ -32,6 +54,24 @@ var thisTour = {
     return this.id;
   }
 };
+
+// (function() {
+//   console.log("HEHEHEHEHEHEHEEH");
+//   $.ajax({
+//     type: "GET",
+//     url: "/api/user_data"
+//   }).then(function(userdata) {
+//     thisUser.setUserData(userdata.id, userdata.name);
+//     console.log("HERE IS THE USER ID:" + thisUser.getUserId());
+// })();
+
+// IIF for grabbing and setting basic user information.
+$(document).ready(function() {
+  $.get("api/user_data").then(function(userdata) {
+    thisUser.setUserData(userdata.id, userdata.name);
+    console.log("HERE IS THE USER ID:" + thisUser.getUserId());
+  });
+});
 
 // If the user wants to add another stop to the route, generate a blank input field.
 $(document).on("click", "#add-stop-button", function() {
@@ -112,7 +152,7 @@ function createTour(e) {
   }
 
   var tour = {
-    user: creator,
+    Users: thisUser.getUserId(),
     title: title,
     description: description,
     neighborhood: neighborhood,
@@ -120,6 +160,8 @@ function createTour(e) {
     duration: duration,
     tags: tags
   };
+
+  console.log(tour);
 
   if (!errors.length) {
     // Post our tour to the Tours table, then reveal the form and set our local tour object.
