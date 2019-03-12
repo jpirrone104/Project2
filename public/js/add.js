@@ -118,27 +118,28 @@ function createTour(e) {
   }
 
   if (!title) {
-    errors.push(" Missing tour title");
+    errors.push("Missing tour title");
   }
 
   if (!description) {
-    errors.push(" Missing tour description");
+    errors.push("Missing tour description");
   }
 
   if (!duration) {
-    errors.push(" Missing tour duration");
+    errors.push("Missing tour duration");
   }
 
   if (!neighborhood || neighborhood === "Select Neighborhood") {
-    errors.push(" Missing tour neighborhood");
+    errors.push("Missing tour neighborhood");
   }
 
   if (!URL || !checkURL(URL)) {
-    errors.push(" Missing proper image URL");
+    errors.push("Missing proper image URL");
   }
 
+  // If there are errors, display a modal tell us what they are.
   if (errors.length > 0) {
-    alert("Please fix the following errors: \n" + errors);
+    showErrorModal(errors);
   }
 
   var tour = {
@@ -151,7 +152,7 @@ function createTour(e) {
     tags: tags
   };
 
-  console.log(tour);
+  // console.log(tour);
 
   if (!errors.length) {
     // Post our tour to the Tours table, then reveal the form and set our local tour object.
@@ -222,8 +223,8 @@ function addTourLocations(e) {
   }
 
   if (areStopErrors) {
-    alert(
-      "You're missing a tour stop title, description, or address along the way."
+    showErrorModal(
+      "You've missed a tour stop title, description, or address along the way."
     );
   } else {
     API.saveLocations(locations).then(function(data) {
@@ -231,7 +232,7 @@ function addTourLocations(e) {
         console.log("success! posted locations.");
         window.location.href = "/view-tours";
       } else {
-        alert("Something went wrong. Try again!");
+        showErrorModal("Something went wrong. Try again!");
       }
     });
   }
@@ -240,4 +241,25 @@ function addTourLocations(e) {
 // Function that takes in a url and returns boolean whether it ends with the proper picture format.
 function checkURL(url) {
   return url.match(/\.(jpeg|jpg|gif|png)$/i) !== null;
+}
+
+// Function takes in an error (array or single string) and displays it in a modal.
+function showErrorModal(error) {
+  if (Array.isArray(error)) {
+    var $ul = $("<ul>");
+    error.forEach(function(element) {
+      $ul.append("<li>" + element + "</li>");
+    });
+    $("#error-text").append($ul);
+  } else {
+    $("#error-text").text(error);
+  }
+
+  // Show the modal. Clear it 500mils after it's been dismissed.
+  $("#error").modal("show");
+  $("button[data-dismiss='modal']").on("click", function() {
+    setTimeout(function() {
+      $("#error-text").text("");
+    }, 500);
+  });
 }
