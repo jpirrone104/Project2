@@ -39,7 +39,7 @@ $(function() {
           // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(function(err) {
-          showErrorModal("We had trouble signing you up. Please try again,");
+          showErrorModal("We had trouble signing you up. Please try again.");
           // console.log(err);
         });
     }
