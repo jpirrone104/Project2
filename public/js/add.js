@@ -240,7 +240,9 @@ function addTourLocations(e) {
 
 // Function that takes in a url and returns boolean whether it ends with the proper picture format.
 function checkURL(url) {
-  return url.match(/\.(jpeg|jpg|gif|png)$/i) !== null;
+  return (
+    url.match(/(http(s?):\/\/)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/i) !== null
+  );
 }
 
 // Function takes in an error (array or single string) and displays it in a modal.
