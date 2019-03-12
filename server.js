@@ -1,9 +1,11 @@
 require("dotenv").config();
 var express = require("express");
+var session = require("express-session");
 var exphbs = require("express-handlebars");
 var helpers = require("./lib/helpers");
 
 var db = require("./models");
+var passport = require("./config/passport");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -16,6 +18,17 @@ app.use(express.static("public"));
 var hbs = exphbs.create({
   defaultLayout: "main",
   helpers: helpers // Require our custom Handlebars helpers.
+});
+
+//Sessions are used to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(function(req, res, next) {
+  res.locals.user = req.user; // Set a local variable for our user.
+  next();
 });
 
 // Handlebars

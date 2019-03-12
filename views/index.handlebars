@@ -5,7 +5,12 @@
         <div class="col-lg-6">
           <h1 class="mt-5">Philly Me In</h1>
           <p>Share local knowledge by making custom walking tours.</p>
-          <a class="btn btn-light btn-lg" href="/view-tours" role="button">Get Started</a>
+          {{#if user}}
+          <a class="btn btn-light btn-lg" href="/view-tours" role="button">View Tours</a>
+          {{else}}
+          <a class="btn btn-light btn-lg" href="/login" role="button">Get Started</a>
+          {{/if}}
+          <br>
         </div>
       </div>
     </div>
