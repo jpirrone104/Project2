@@ -16,6 +16,7 @@ $(function() {
       };
   
       if (!userData.name || !userData.email || !userData.password) {
+        showErrorModal("Please provide a name, email, and password.");
         return;
       }
       // If we have an email and password, run the signUpUser function
@@ -37,11 +38,30 @@ $(function() {
           window.location.replace(data);
           // If there's an error, handle it by throwing up a bootstrap alert
         })
-        .catch(handleLoginErr);
+        .catch(function(err) {
+          showErrorModal("We had trouble signing you up. Please try again,");
+          // console.log(err);
+        });
     }
   
-    function handleLoginErr(err) {
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
+    // Function takes in an error (array or single string) and displays it in a modal.
+  function showErrorModal(error) {
+    if (Array.isArray(error)) {
+      var $ul = $("<ul>");
+      error.forEach(function(element) {
+        $ul.append("<li>" + element + "</li>");
+      });
+      $("#error-text").append($ul);
+    } else {
+      $("#error-text").text(error);
     }
+
+    // Show the modal. Clear it 500mils after it's been dismissed.
+    $("#error").modal("show");
+    $("button[data-dismiss='modal']").on("click", function() {
+      setTimeout(function() {
+        $("#error-text").text("");
+      }, 500);
+    });
+  }
   });
