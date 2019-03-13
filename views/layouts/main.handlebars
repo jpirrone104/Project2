@@ -15,7 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="/styles/styles.css" rel="stylesheet">
-
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3XfuMJJGzaU8TUItQM7XWD4esZdbpgtA&libraries=places"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
   </nav>
 
   {{{body}}}
-
+{{!-- <input type = "text" id="stopAddressHelp"> --}}
   <!-- Bootstrap core JavaScript -->
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -69,18 +69,19 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   {{!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCskO-4_rcUD4q4mc2GYcCsgzhn_XHMtqs&libraries=places&callback=initAutocomplete"
       async defer></script> --}}
-      <script src="/js/add.js"></script>
-  <script>
-    function activatePlacesSearch(){
+      {{!-- <script src="/js/add.js"></script> --}}
+  {{!-- <script>
+    
       var input = document.getElementById('stopAddressHelp');
       var autocomplete = new google.maps.places.Autocomplete(input);
-    }
-  </script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANcoQrKZWJkpefb3T8qMU8mA4W2eTu9eM&libraries=places&callback=activatePlacesSearch"></script>
+    
+  </script> --}}
+  {{!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANcoQrKZWJkpefb3T8qMU8mA4W2eTu9eM&libraries=places&callback=activatePlacesSearch"></script> --}}
  <script src="/js/add.js"></script>
   <script src="/js/signup.js"></script>
   <script src="/js/login.js"></script>
 
 </body>
+
 
 </html>

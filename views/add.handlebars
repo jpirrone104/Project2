@@ -100,10 +100,10 @@
                   <input type="text" class="form-control stoptitle" aria-describedby="stopHelp" placeholder="Enter stop name">
                   <small id="stopHelp" class="form-text text-muted">Enter a name for this stop.</small>
 
-                  <input type="text" class="form-control mt-3 stopaddress" aria-describedby="stopAddressHelp" placeholder="Enter stop address">
+                  <input type="text" class="form-control mt-3 stopaddress" aria-describedby="stopAddressHelp" placeholder="Enter stop address" id="stopAddressHelp">
                   <small id="stopAddressHelp" class="form-text text-muted">Enter an address for this stop.</small>
 
-                  <textarea class="form-control mt-3 stopdescription" rows="3" aria-describedby="stopDescriptionHelp" placeholder="Enter a description for this stop"></textarea>
+                  <input class="form-control mt-3 stopdescription" rows="3" aria-describedby="stopDescriptionHelp" placeholder="Enter a description for this stop"></input>
                   <small id="stopDescriptionHelp" class="form-text text-muted">Enter a short description of what users can expect to find at this stop.</small>
 
                   <button type="button" class="btn btn-outline-success mt-3" id="add-stop-button">Add Another Stop</button>
@@ -115,4 +115,12 @@
         </form>
 
     </div>
+    <script>
+    
+      var input = document.getElementById('stopAddressHelp');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+    
+  </script>
+    
+   
   </section>
