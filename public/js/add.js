@@ -100,14 +100,7 @@ function createTour(e) {
 
   // Grab and process tags.
   var tagElements = document.getElementsByClassName("tag");
-  var tags = "";
-  for (var i = 0; i < tagElements.length; i++) {
-    if (i === tagElements.length - 1) {
-      tags += tagElements[i].value.toLowerCase().trim();
-    } else {
-      tags += tagElements[i].value.toLowerCase().trim() + ", ";
-    }
-  }
+  var tags = collectTags(tagElements);
 
   // Capture our errors into an array (we'll render this on the page as a modal).
   var errors = [];
@@ -236,6 +229,20 @@ function addTourLocations(e) {
       }
     });
   }
+}
+
+// Function that takes in tag nodes and returns a stringified version of them for processing by handlebars.
+function collectTags(elements) {
+  var rawTags = [];
+
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].value) {
+      rawTags.push(elements[i].value.toLowerCase().trim());
+    }
+  }
+
+  var finalTags = rawTags.join(", ");
+  return finalTags;
 }
 
 // Function that takes in a url and returns boolean whether it ends with the proper picture format.
