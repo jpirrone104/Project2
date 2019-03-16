@@ -82,17 +82,17 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  // Route for user to view their created tours.
-  // app.get("/my-tours", isAuthenticated, function(req, res) {
-  //   db.Tour.findAll({
-  //     where: { userId: req.user.id },
-  //     include: [db.Location]
-  //   }).then(function(tours) {
-  //     res.render("my-tours", {
-  //       tours: tours
-  //     });
-  //   });
-  // });
+  //Route for user to view their created tours.
+  app.get("/my-tours", isAuthenticated, function(req, res) {
+    db.Tour.findAll({
+      where: { userId: req.user.id },
+      include: [db.Location]
+    }).then(function(tours) {
+      res.render("my-tours", {
+        tours: tours
+      });
+    });
+  });
 
   // Render 404 page for any unmatched routes.
   app.get("*", function(req, res) {

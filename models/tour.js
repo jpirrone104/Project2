@@ -39,11 +39,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Tour.associate = function(models) {
     Tour.hasMany(models.Location);
+    Tour.belongsTo(models.User);
   };
-
-  // Tour.associate = function(models) {
-  //   Tour.belongsTo(models.User);
-  // };
-
   return Tour;
 };
