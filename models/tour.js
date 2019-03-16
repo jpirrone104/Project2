@@ -30,13 +30,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     tags: DataTypes.STRING
-    // Users: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "Users",
-    //     key: "id"
-    //   }
-    // }
   });
 
   Tour.associate = function(models) {
