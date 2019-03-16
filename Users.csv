@@ -1,0 +1,9 @@
+id,name,createdAt,updatedAt,email,password
+1,Kenny,"2019-03-12 01:37:37","2019-03-12 01:37:37",test@blah.com,$2a$10$Mmn0qXCLM6z8gSaqlw2.oe2FJsjOh3/OhilsB6PRa7Qa/Rw03EtvK
+2,Jen,"2019-03-12 01:38:07","2019-03-12 01:38:07",pirronej@ymail.com,$2a$10$LZ5jbIetY8l5BQfg/eYnMeFIYwZ2B59K8Fg5jL08r68bS7wxtQ4kS
+3,Bob,"2019-03-12 23:13:51","2019-03-12 23:13:51",fake1@fake.com,$2a$10$udjJBuFomMFIas855cNbBOsCCij1hLuBhLrAjEj.SPPPdjaNRdbMO
+6,Bob,"2019-03-13 01:53:53","2019-03-13 01:53:53",test@testytest.com,$2a$10$tOlaQwaFthUe/Qw6TvKhKe5Fl6racbxI8.qsLwk8Mkb/u7LMrXM2O
+8,testing,"2019-03-13 22:31:39","2019-03-13 22:31:39",test123@test.com,$2a$10$ISEHYATBc5/ggsoClZDC4eBaxzRoyOibQjnycXhv.IsSwjdd47Ysi
+9,Jen,"2019-03-13 22:48:20","2019-03-13 22:48:20",pirronej104@gmail.com,$2a$10$Y55o2LHWN2Ft8a.iffkZY.oYLYV58NNjeTgwsGR0w1vOuZyJMGiS6
+12,Jason,"2019-03-14 21:09:56","2019-03-14 21:09:56",jhorowitz96@gmail.com,$2a$10$N5FophimgVc9BSKgeTC3g.wd3juSX9JLlNKNorc6M50WXX28hq.Hy
+13,Guest,"2019-03-15 17:14:02","2019-03-15 17:14:02",guest@demo.com,$2a$10$w.FdlSBNn.3YJd4j6jlY6OvU9lt8eYxUgM1eMBfrtWPHuJQWL54PW
