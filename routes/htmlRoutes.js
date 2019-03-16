@@ -16,10 +16,12 @@ module.exports = function(app) {
     });
   });
 
+  // Load add tours page when the user is authenticated.
   app.get("/add", isAuthenticated, function(req, res) {
     res.render("add");
   });
 
+  // Load a tour by id.
   app.get("/tour/:id", function(req, res) {
     db.Tour.findOne({
       where: { id: req.params.id },
@@ -31,6 +33,7 @@ module.exports = function(app) {
     });
   });
 
+  // Load browse page and display all tags.
   app.get("/browse", function(req, res) {
     db.Tour.findAll({}).then(function(tours) {
       res.render("browse", {
@@ -39,6 +42,7 @@ module.exports = function(app) {
     });
   });
 
+  // Browse by a particular neighborhood.
   app.get("/browse/:neighborhood", function(req, res) {
     db.Tour.findAll({
       where: {
@@ -52,6 +56,7 @@ module.exports = function(app) {
     });
   });
 
+  // Browse by a particular tag.
   app.get("/browse/tags/:tag", function(req, res) {
     db.Tour.findAll({
       where: {
@@ -67,15 +72,29 @@ module.exports = function(app) {
     });
   });
 
+  // Load the signup page.
   app.get("/signup", function(req, res) {
     res.render("signup");
   });
 
+  // Load the login page.
   app.get("/login", function(req, res) {
     res.render("login");
   });
 
-  // Render 404 page for any unmatched routes
+  // Route for user to view their created tours.
+  // app.get("/my-tours", isAuthenticated, function(req, res) {
+  //   db.Tour.findAll({
+  //     where: { userId: req.user.id },
+  //     include: [db.Location]
+  //   }).then(function(tours) {
+  //     res.render("my-tours", {
+  //       tours: tours
+  //     });
+  //   });
+  // });
+
+  // Render 404 page for any unmatched routes.
   app.get("*", function(req, res) {
     res.render("404");
   });
