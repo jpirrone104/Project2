@@ -3,13 +3,13 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
        return queryInterface.addColumn(
-        user.associate = function (models) {
-          user.hasMany(models.Tour);
+        User.associate = function (models) {
+          User.hasMany(models.Tour);
         });
        },
       
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn('Tour', 'Users')
+    return queryInterface.removeColumn('Tours', 'Users')
   }
  };

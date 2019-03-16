@@ -1,3 +1,5 @@
+"Use Strict";
+
 module.exports = function(sequelize, DataTypes) {
   var Tour = sequelize.define("Tour", {
     title: {
