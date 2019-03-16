@@ -1,3 +1,5 @@
+"Use Strict";
+
 module.exports = function(sequelize, DataTypes) {
   var Tour = sequelize.define("Tour", {
     title: {
@@ -28,22 +30,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     tags: DataTypes.STRING
-    // Users: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "Users",
-    //     key: "id"
-    //   }
-    // }
   });
 
   Tour.associate = function(models) {
     Tour.hasMany(models.Location);
+    Tour.belongsTo(models.User);
   };
-
-  // Tour.associate = function(models) {
-  //   Tour.belongsTo(models.User);
-  // };
-
   return Tour;
 };

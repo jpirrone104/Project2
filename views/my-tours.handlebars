@@ -1,0 +1,44 @@
+<!-- Page Content -->
+<section id="my-tours-main" class="mb-3">
+    <div class="container mb-3">
+        <div class="row justify-content-center align-items-center text-center">
+            <div class="col-lg-6">
+                <h1 class="mt-5">My Tours</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {{#each tours}}
+        <div class="row justify-content-center align-items-center text-center mb-5">
+            <div class="col-lg-10">
+                <div class="card shadow-sm">
+                    {{!-- FOR LATER: Add user/creator name once it's been added to the schema. --}}
+                    <h5 class="card-header">{{title}}
+                        <button type="button" class="btn btn-danger btn-small float-right tour-delete" data-id="{{id}}">X</button>
+                        <br />
+                    {{!-- <span id="creator" class="font-italic">by
+                            John Smith</span> --}}
+                    </h5>
+                    <div class="card-body">
+                        <img src="{{URL}}" alt="Image related to {{neighborhood}}" class="img-thumbnail w-50 mb-2">
+                        <h3><span id="neighborhood" class="badge badge-info"><a href="/browse/{{neighborhood}}" class="text-white" style="text-decoration: none">{{neighborhood}}</a></span></h3>
+                        <h5><span id="duration" class="badge badge-danger">{{duration}} minutes</span></h5>
+                        <p>
+                            {{#each (returnArrayfromString tags)}}
+                                {{#if this}}
+                                    <span class="tour-tag badge badge-secondary"><a href="/browse/tags/{{this}}" class="text-white" style="text-decoration: none">{{this}}</a></span>
+                                {{/if}}
+                            {{/each}}
+                        </p>
+                        <p class="card-text">{{description}}</p>
+                        <a href="/tour/{{id}}" class="btn btn-outline-secondary btn-lg btn-block" role="button">View
+                            Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <h3 class="text-center font-italic">Looks like you haven't created any tours. <a href="/add">Create one</a>!</h3>
+        {{/each}}
+    </div>
+</section>

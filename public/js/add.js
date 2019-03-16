@@ -136,7 +136,7 @@ function createTour(e) {
   }
 
   var tour = {
-    Users: thisUser.getUserId(),
+    UserId: thisUser.getUserId(),
     title: title,
     description: description,
     neighborhood: neighborhood,
